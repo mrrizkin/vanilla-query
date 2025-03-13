@@ -16,19 +16,19 @@ A React Query-like data fetching and caching library for vanilla JavaScript/Type
 ## Installation
 
 ```sh
-npm install vanilla-query
+npm install @nugrhrizki/vanilla-query
 ```
 
 or
 
 ```sh
-pnpm add vanilla-query
+pnpm add @nugrhrizki/vanilla-query
 ```
 
 ## Basic Usage
 
 ```typescript
-import { VanillaQuery } from 'vanilla-query'
+import { VanillaQuery } from '@nugrhrizki/vanilla-query'
 
 // Create an instance
 const queryClient = new VanillaQuery()
