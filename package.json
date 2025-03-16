@@ -11,10 +11,10 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "pnpm run build-plugin",
-    "build-plugin": "rm -rf dist && pnpm run build-plugin-types && pnpm run build-plugin-esm",
-    "build-plugin-types": "tsc --emitDeclarationOnly",
-    "build-plugin-esm": "esbuild src/index.ts --platform=node --format=esm --outfile=dist/index.js && esbuild src/vanilla-query.ts --platform=node --format=esm --outfile=dist/vanilla-query.js",
+    "clean": "rimraf dist",
+    "build": "pnpm run clean && pnpm run build:types && pnpm run build:esm",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:esm": "esbuild src/index.ts src/vanilla-query.ts --platform=node --format=esm --outdir=dist",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "lint": "eslint src --ext .ts",
@@ -38,17 +38,18 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
-    "@types/node": "^22.10.7",
+    "@types/node": "^22.13.10",
     "@typescript-eslint/eslint-plugin": "^8.26.1",
     "@typescript-eslint/parser": "^8.26.1",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
-    "ts-jest": "^29.2.6",
     "esbuild": "0.25.0",
     "eslint": "^9.22.0",
-    "typescript": "^5.7.3",
-    "vite": "^6.0.7",
-    "vitest": "^3.0.2"
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "rimraf": "^6.0.1",
+    "ts-jest": "^29.2.6",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.2",
+    "vitest": "^3.0.8"
   },
   "jest": {
     "preset": "ts-jest",
